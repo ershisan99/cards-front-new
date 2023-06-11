@@ -26,9 +26,6 @@ B
 tsconfig.node.json,c/d/cd346bdc6f8eee39e4d280aa9a6f7949c2133a71
 =
 tsconfig.json,6/1/61ebb9fd6e8cf9082658121d5d81e297791dacd0
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 A
 src/setupTests.ts,3/9/39129446b425a1d640160c068e4194e96639eedf
 @
@@ -37,5 +34,3 @@ X
 (lesson-1/chapter-1/lesson-1-chapter-1.md,6/6/66d59c4a57e0fac758990d54687da03fa91f7764
 ;
 src/App.tsx,8/3/835da56f32df714aaed6285a5b7fc3a7807851e4
-D
-src/stories/Page.tsx,3/e/3ebf3e3f6127b234191f7c353ab8d8459edfa893

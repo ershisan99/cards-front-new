@@ -5,9 +5,6 @@ J
 ,.idea/inspectionProfiles/Project_Default.xml,4/9/496a238a6afa168dbaf6efd37bb459331589579c
 U
 %.idea/stylesheetLinters/stylelint.xml,f/2/f244c4dfd1c18aa1a02a0f7fa539bbd36c1b6d0d
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 ?
 .prettierrc.cjs,2/4/24f39b4502c9804e25b84f5b72686f997cc7dfa3
 @
@@ -37,5 +34,3 @@ X
 vite.config.ts,7/5/75ea7f3ea6d80d54bb5b2357996972d1632a5038
 ;
 src/App.tsx,8/3/835da56f32df714aaed6285a5b7fc3a7807851e4
-D
-src/stories/Page.tsx,3/e/3ebf3e3f6127b234191f7c353ab8d8459edfa893
