@@ -39,3 +39,12 @@ export const Danger: Story = {
     disabled: false,
   },
 }
+
+export const FullWidth: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Full Width Button',
+    disabled: false,
+    fullWidth: true,
+  },
+}
