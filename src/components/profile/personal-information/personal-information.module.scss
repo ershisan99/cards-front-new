@@ -1,0 +1,104 @@
+.card {
+  max-width: 413px;
+  padding: 35px 33px 36px;
+}
+
+.photoContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 31px;
+
+  > div {
+    position: relative;
+
+    > img {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    > .editAvatarButton {
+      all: unset;
+
+      cursor: pointer;
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      width: 32px;
+      height: 32px;
+
+      &:focus-visible {
+        outline: var(--outline-focus);
+      }
+    }
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.logoutButtonContent {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 29px;
+  text-align: center;
+}
+
+.nameWithEditButton {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+}
+
+.name {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.editNameButton {
+  all: unset;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  &:focus-visible {
+    outline: var(--outline-focus);
+  }
+}
+
+.email {
+  margin-bottom: 29px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.caption {
+  margin-bottom: 11px;
+  text-align: center;
+}
+
+.signInLink {
+  display: flex;
+  justify-content: center;
+}

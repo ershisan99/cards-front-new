@@ -1,0 +1,32 @@
+.card {
+  max-width: 413px;
+  padding: 35px 33px 48px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 31px;
+}
+
+.title {
+  margin-bottom: 29px;
+  text-align: center;
+}
+
+.instructions {
+  margin-bottom: 41px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.caption {
+  margin-bottom: 11px;
+  text-align: center;
+}
+
+.signInLink {
+  display: flex;
+  justify-content: center;
+}
