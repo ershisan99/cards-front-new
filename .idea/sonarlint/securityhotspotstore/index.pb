@@ -34,3 +34,20 @@ X
 (lesson-1/chapter-1/lesson-1-chapter-1.md,6/6/66d59c4a57e0fac758990d54687da03fa91f7764
 ;
 src/App.tsx,8/3/835da56f32df714aaed6285a5b7fc3a7807851e4
+O
+src/components/ui/card/card.tsx,e/0/e0eb2f69814442b9788b8cab0c0fd8be7a645b99
+X
+(lesson-1/chapter-2/lesson-1-chapter-2.md,9/d/9d348e884836a5f6e5be38d51e0fef3bda0b961d
+O
+src/components/ui/card/index.ts,3/e/3ee2fd62001c5dd04d81df6e03d83accb3205c18
+V
+&src/components/ui/card/card.stories.ts,0/8/088218c2a2cabf698f74d67e3d1f992b36c687e5
+S
+#src/components/ui/button/button.tsx,c/d/cd149db5e4dcc8239558aeed09da51854acd5e80
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+W
+'src/components/ui/card/card.module.scss,4/8/48e92e97a95f0bec4948c08002c6755f3704a77c
+G
+src/styles/_colors.scss,e/6/e66d4b2ef0dc5769d36179bd8aa3cf18fa8e1513
