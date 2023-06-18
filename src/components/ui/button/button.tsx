@@ -6,7 +6,7 @@ import s from './button.module.scss'
 export interface ButtonProps<T extends React.ElementType> {
   as?: T
   children?: React.ReactNode
-  variant?: 'primary' | 'danger' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
   fullWidth?: boolean
   className?: string
 }
@@ -22,7 +22,8 @@ export function Button<T extends React.ElementType = 'button'>({
     root: clsx(
       variant === 'primary' && s.primary,
       variant === 'secondary' && s.secondary,
-      variant === 'danger' && s.danger,
+      variant === 'tertiary' && s.tertiary,
+      variant === 'link' && s.link,
       fullWidth && s.fullWidth,
       className
     ),
