@@ -28,7 +28,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const classNames = {
       root: clsx(s.root, containerProps?.className),
       fieldContainer: clsx(s.fieldContainer),
-      field: clsx(s.field, className),
+      field: clsx(s.field, !!errorMessage && s.error, className),
       label: clsx(s.label, labelProps?.className),
       error: clsx(s.error),
     }

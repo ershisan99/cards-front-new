@@ -25,3 +25,11 @@ export const Password: Story = {
     type: 'password',
   },
 }
+
+export const Error: Story = {
+  args: {
+    label: 'Input with error',
+    value: 'Wrong value',
+    errorMessage: 'Error message',
+  },
+}
