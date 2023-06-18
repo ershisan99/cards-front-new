@@ -4,15 +4,9 @@
 }
 
 .label {
-  cursor: pointer;
-
   display: flex;
-  gap: 12px;
   align-items: center;
-
-  font-weight: 500;
-  line-height: var(--line-height-s);
-  color: var(--color-text-primary);
+  cursor: pointer;
 
   &.disabled {
     color: var(--color-checkbox-disabled);
@@ -29,8 +23,8 @@
   width: 18px;
   height: 18px;
 
-  background-color: var(--color-bg-paper);
-  border: 2px solid rgb(0 0 0 / 20%);
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-light-900);
   border-radius: 2px;
 
   &:focus {
@@ -44,6 +38,38 @@
 
   &[data-state='checked']:disabled {
     background-color: var(--color-checkbox-disabled);
+  }
+}
+
+.buttonWrapper {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background-color: rgb(255 255 255 / 0%);
+  border-radius: 50%;
+
+  &.disabled {
+    cursor: initial;
+  }
+
+  &:focus-within,
+  &:hover:not(.disabled),
+  &:hover .root:not([data-state='checked']) {
+    background-color: var(--color-bg-focus);
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--color-bg-primary-active);
+  }
+
+  &.left {
+    margin-left: -9px;
   }
 }
 

@@ -1,15 +1,19 @@
 .card {
   max-width: 413px;
-  padding: 35px 33px 38px;
+  padding: 33px 36px 29px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 23px;
 
   width: 100%;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
+}
+
+.checkbox {
+  margin-bottom: 6px;
 }
 
 .title {
@@ -23,21 +27,18 @@
   justify-content: flex-end;
 
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 66px;
 
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 17px;
   color: inherit;
   text-align: right;
-  text-decoration: none;
 }
 
 .button {
-  margin-bottom: 31px;
+  margin-bottom: 20px;
 }
 
 .caption {
+  color: var(--color-light-900);
   margin-bottom: 11px;
   text-align: center;
 }

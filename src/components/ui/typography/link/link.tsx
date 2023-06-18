@@ -9,7 +9,7 @@ export interface LinkProps<T extends React.ElementType> {
   className?: string
 }
 
-export function Link<T extends React.ElementType = 'button'>({
+export function Link<T extends React.ElementType = 'a'>({
   as,
   className,
   ...props
