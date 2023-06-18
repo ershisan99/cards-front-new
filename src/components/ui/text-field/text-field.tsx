@@ -36,7 +36,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     return (
       <div className={classNames.root}>
         {label && (
-          <Typography.Text className={classNames.label} size={14}>
+          <Typography.Text as="label" className={classNames.label} size={14}>
             {label}
           </Typography.Text>
         )}
