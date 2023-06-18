@@ -33,6 +33,11 @@
   &:hover {
     background: var(--color-dark-700);
   }
+
+  &.error {
+    border-color: var(--color-danger-300);
+    color: var(--color-danger-300);
+  }
 }
 
 .label {
@@ -61,8 +66,4 @@
   &:focus-visible {
     outline: var(--outline-focus);
   }
-}
-
-.error {
-  margin-top: 5px;
 }
