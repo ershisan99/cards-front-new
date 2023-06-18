@@ -13,12 +13,14 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
+    label: 'Label',
     placeholder: 'Placeholder',
   },
 }
 
 export const Password: Story = {
   args: {
+    label: 'Label',
     placeholder: 'Password',
     type: 'password',
   },

@@ -11,11 +11,12 @@ export type TextFieldProps = {
   containerProps?: ComponentProps<'div'>
   labelProps?: ComponentProps<'label'>
   errorMessage?: string
+  label?: string
 } & ComponentPropsWithoutRef<'input'>
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
-    { className, errorMessage, placeholder, type, containerProps, labelProps, ...restProps },
+    { className, errorMessage, placeholder, type, containerProps, labelProps, label, ...restProps },
     ref
   ) => {
     const [showPassword, setShowPassword] = useState(false)
@@ -26,6 +27,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 
     const classNames = {
       root: clsx(s.root, containerProps?.className),
+      fieldContainer: clsx(s.fieldContainer),
       field: clsx(s.field, className),
       label: clsx(s.label, labelProps?.className),
       error: clsx(s.error),
@@ -33,23 +35,30 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 
     return (
       <div className={classNames.root}>
-        <input
-          className={classNames.field}
-          placeholder={placeholder}
-          ref={ref}
-          type={finalType}
-          {...restProps}
-        />
-        <label className={classNames.label}>{placeholder}</label>
-        {isShowPasswordButtonShown && (
-          <button
-            className={s.showPassword}
-            type={'button'}
-            onClick={() => setShowPassword(prev => !prev)}
-          >
-            {showPassword ? <VisibilityOff /> : <Eye />}
-          </button>
+        {label && (
+          <Typography.Text className={classNames.label} size={14}>
+            {label}
+          </Typography.Text>
         )}
+        <div className={classNames.fieldContainer}>
+          <input
+            className={classNames.field}
+            placeholder={placeholder}
+            ref={ref}
+            type={finalType}
+            {...restProps}
+          />
+          {isShowPasswordButtonShown && (
+            <button
+              className={s.showPassword}
+              type={'button'}
+              onClick={() => setShowPassword(prev => !prev)}
+            >
+              {showPassword ? <VisibilityOff /> : <Eye />}
+            </button>
+          )}
+        </div>
+
         <Typography.Error className={classNames.error}>{errorMessage}</Typography.Error>
       </div>
     )
