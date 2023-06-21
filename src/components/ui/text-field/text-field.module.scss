@@ -1,73 +1,62 @@
 .root {
+}
+
+.fieldContainer {
   position: relative;
-  padding: 15px 0 0;
 }
 
 .field {
   width: 100%;
-  padding: 7px 0;
+  padding: 6px 12px;
 
   font-family: inherit;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 24px;
-  color: rgb(0 0 0);
+  color: var(--color-light-100);
 
   background: transparent;
-  border: 0;
-  border-bottom: 1px solid rgb(0 0 0 / 20%);
+  border: 1px solid var(--color-dark-300);
   outline: 0;
 
   transition: border-color 0.2s;
 
   &::placeholder {
-    color: transparent;
+    color: var(--color-dark-100);
   }
 
-  &:placeholder-shown ~ .label {
-    cursor: text;
-    top: 20px;
-    font-size: 16px;
-    line-height: 24px;
+  &:focus-visible {
+    outline: 1px solid var(--color-outline-focus);
+    border-color: var(--color-outline-focus);
+  }
+
+  &:hover {
+    background: var(--color-dark-700);
+  }
+
+  &.error {
+    border-color: var(--color-danger-300);
+    color: var(--color-danger-300);
   }
 }
 
-.label,
-.field:focus ~ .label {
-  pointer-events: none;
-
-  position: absolute;
-  top: 0;
-
-  display: block;
-
-  font-size: 13px;
-  line-height: 20px;
-  color: rgb(0 0 0 / 50%);
-
-  transition: 0.2s;
-}
-
-.field:focus ~ .label {
-  color: var(--color-accent-500);
-}
-
-.field:focus {
-  padding-bottom: 6px;
-  border-bottom: 2px solid var(--color-accent-500);
+.label {
+  margin-bottom: 1px;
+  color: var(--color-dark-100);
 }
 
 .showPassword {
   cursor: pointer;
 
   position: absolute;
-  top: 0;
+  bottom: 50%;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0;
 
-  width: 24px;
-  height: 24px;
-  margin-top: 16px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
   padding: 0;
 
   background: transparent;
@@ -77,8 +66,4 @@
   &:focus-visible {
     outline: var(--outline-focus);
   }
-}
-
-.error {
-  margin-top: 5px;
 }

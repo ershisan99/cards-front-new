@@ -1,9 +1,18 @@
 :root {
-  --font-family-primary: 'Montserrat Variable', sans-serif;
+  --font-family-primary: 'Roboto', sans-serif;
 
   // line heights
-  --line-height-xs: 0.991rem;
-  --line-height-s: 1.219rem;
-  --line-height-m: 1.5rem;
-  --line-height-l: 1.75rem;
+  --line-height-xs: 0.991;
+  --line-height-s: 1.219;
+  --line-height-m: 24px;
+  --line-height-l: 36px;
+
+  // font sizes
+
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.875rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.625rem;
 }

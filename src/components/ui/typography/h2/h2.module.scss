@@ -1,10 +1,8 @@
-.link,
-link:visited {
+.h2 {
   margin: 0;
   padding: 0;
 
-  font-size: 16px;
+  font-size: var(--font-size-l);
   font-weight: 700;
   line-height: var(--line-height-m);
-  color: var(--color-accent-500);
 }
