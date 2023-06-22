@@ -32,18 +32,17 @@ export const NewPassword = (props: Props) => {
     <>
       <DevTool control={control} />
       <Card className={s.card}>
-        <Typography variant="h1" className={s.title}>
+        <Typography variant="large" className={s.title}>
           Create new password
         </Typography>
         <form onSubmit={handleFormSubmitted}>
-          <div className={s.form}>
-            <ControlledTextField
-              placeholder={'Password'}
-              name={'password'}
-              control={control}
-              type={'password'}
-            />
-          </div>
+          <ControlledTextField
+            placeholder={'Password'}
+            name={'password'}
+            control={control}
+            type={'password'}
+            containerProps={{ className: s.input }}
+          />
           <Typography variant="caption" className={s.instructions}>
             Create new password and we will send you further instructions to email
           </Typography>
