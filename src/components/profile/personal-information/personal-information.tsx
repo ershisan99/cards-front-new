@@ -31,7 +31,7 @@ export const PersonalInformation = ({
 
   return (
     <Card className={s.card}>
-      <Typography variant="h1" className={s.title}>
+      <Typography variant="large" className={s.title}>
         Personal Information
       </Typography>
       <div className={s.photoContainer}>
@@ -43,21 +43,21 @@ export const PersonalInformation = ({
         </div>
       </div>
       <div className={s.nameWithEditButton}>
-        <p className={s.name}>{name}</p>
+        <Typography variant="h1" className={s.name}>
+          {name}
+        </Typography>
         <button className={s.editNameButton} onClick={handleNameChanged}>
           <Edit />
         </button>
       </div>
-      <Typography variant="caption" className={s.email}>
+      <Typography variant="body2" className={s.email}>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         {email}
       </Typography>
       <div className={s.buttonContainer}>
         <Button variant={'secondary'} onClick={handleLogout}>
-          <span className={s.logoutButtonContent}>
-            <Logout />
-            Sign Out
-          </span>
+          <Logout />
+          Sign Out
         </Button>
       </div>
     </Card>
