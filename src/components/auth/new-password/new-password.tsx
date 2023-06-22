@@ -32,7 +32,9 @@ export const NewPassword = (props: Props) => {
     <>
       <DevTool control={control} />
       <Card className={s.card}>
-        <Typography.H1 className={s.title}>Create new password</Typography.H1>
+        <Typography variant="h1" className={s.title}>
+          Create new password
+        </Typography>
         <form onSubmit={handleFormSubmitted}>
           <div className={s.form}>
             <ControlledTextField
@@ -42,9 +44,9 @@ export const NewPassword = (props: Props) => {
               type={'password'}
             />
           </div>
-          <Typography.Caption className={s.instructions}>
+          <Typography variant="caption" className={s.instructions}>
             Create new password and we will send you further instructions to email
-          </Typography.Caption>
+          </Typography>
           <Button fullWidth type={'submit'}>
             Create new password
           </Button>

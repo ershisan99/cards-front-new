@@ -36,9 +36,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     return (
       <div className={classNames.root}>
         {label && (
-          <Typography.Text as="label" className={classNames.label} size={14}>
+          <Typography variant="body2" as="label" className={classNames.label}>
             {label}
-          </Typography.Text>
+          </Typography>
         )}
         <div className={classNames.fieldContainer}>
           <input
@@ -59,7 +59,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           )}
         </div>
 
-        <Typography.Error className={classNames.error}>{errorMessage}</Typography.Error>
+        <Typography variant="error" className={classNames.error}>
+          {errorMessage}
+        </Typography>
       </div>
     )
   }

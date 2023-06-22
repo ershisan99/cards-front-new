@@ -19,14 +19,7 @@ export function Button<T extends React.ElementType = 'button'>({
   ...props
 }: ButtonProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>) {
   const classNames = {
-    root: clsx(
-      variant === 'primary' && s.primary,
-      variant === 'secondary' && s.secondary,
-      variant === 'tertiary' && s.tertiary,
-      variant === 'link' && s.link,
-      fullWidth && s.fullWidth,
-      className
-    ),
+    root: clsx(s[variant], fullWidth && s.fullWidth, className),
   }
 
   const Component = as || 'button'
