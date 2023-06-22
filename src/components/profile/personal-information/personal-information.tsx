@@ -31,7 +31,9 @@ export const PersonalInformation = ({
 
   return (
     <Card className={s.card}>
-      <Typography.H1 className={s.title}>Personal Information</Typography.H1>
+      <Typography variant="h1" className={s.title}>
+        Personal Information
+      </Typography>
       <div className={s.photoContainer}>
         <div>
           <img src={avatar} alt={'avatar'} />
@@ -46,10 +48,10 @@ export const PersonalInformation = ({
           <Edit />
         </button>
       </div>
-      <Typography.Caption className={s.email}>
+      <Typography variant="caption" className={s.email}>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         {email}
-      </Typography.Caption>
+      </Typography>
       <div className={s.buttonContainer}>
         <Button variant={'secondary'} onClick={handleLogout}>
           <span className={s.logoutButtonContent}>

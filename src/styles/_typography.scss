@@ -3,7 +3,7 @@
 
   // line heights
   --line-height-xs: 0.991;
-  --line-height-s: 1.219;
+  --line-height-s: 16px;
   --line-height-m: 24px;
   --line-height-l: 36px;
 
@@ -15,4 +15,9 @@
   --font-size-l: 1.125rem;
   --font-size-xl: 1.25rem;
   --font-size-xxl: 1.625rem;
+
+  // font weights
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
 }

@@ -33,25 +33,27 @@ export const RecoverPassword = (props: Props) => {
     <>
       <DevTool control={control} />
       <Card className={s.card}>
-        <Typography.H1 className={s.title}>Forgot your password?</Typography.H1>
+        <Typography variant="h1" className={s.title}>
+          Forgot your password?
+        </Typography>
         <form onSubmit={handleFormSubmitted}>
           <div className={s.form}>
             <ControlledTextField placeholder={'Email'} name={'email'} control={control} />
           </div>
-          <Typography.Caption className={s.instructions}>
+          <Typography variant="caption" className={s.instructions}>
             Enter your email address and we will send you further instructions
-          </Typography.Caption>
+          </Typography>
           <Button className={s.button} fullWidth type={'submit'}>
             Send Instructions
           </Button>
         </form>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <Typography.Caption className={s.caption}>
+        <Typography variant="caption" className={s.caption}>
           Did you remember your password?
-        </Typography.Caption>
-        <Typography.Link as={Link} to="/sign-in" className={s.signInLink}>
+        </Typography>
+        <Typography variant="link1" as={Link} to="/sign-in" className={s.signInLink}>
           Try logging in
-        </Typography.Link>
+        </Typography>
       </Card>
     </>
   )

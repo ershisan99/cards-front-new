@@ -52,7 +52,9 @@ export const SignUp = (props: Props) => {
     <>
       <DevTool control={control} />
       <Card className={s.card}>
-        <Typography.H1 className={s.title}>Sign Up</Typography.H1>
+        <Typography variant="h1" className={s.title}>
+          Sign Up
+        </Typography>
         <form onSubmit={handleFormSubmitted}>
           <div className={s.form}>
             <ControlledTextField placeholder={'Email'} name={'email'} control={control} />
@@ -74,10 +76,12 @@ export const SignUp = (props: Props) => {
           </Button>
         </form>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <Typography.Caption className={s.caption}>Already have an account?</Typography.Caption>
-        <Typography.Link as={Link} to="/sign-in" className={s.signInLink}>
+        <Typography variant="caption" className={s.caption}>
+          Already have an account?
+        </Typography>
+        <Typography variant="link1" as={Link} to="/sign-in" className={s.signInLink}>
           Sign In
-        </Typography.Link>
+        </Typography>
       </Card>
     </>
   )
