@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prepare": "pnpx husky-init && pnpm install && husky install",
     "dev": "vite",
     "start": "vite",
     "build": "tsc && vite build",

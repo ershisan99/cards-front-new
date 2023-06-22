@@ -37,7 +37,7 @@ export const SignIn = (props: Props) => {
     <>
       <DevTool control={control} />
       <Card className={s.card}>
-        <Typography variant="h1" className={s.title}>
+        <Typography variant="large" className={s.title}>
           Sign In
         </Typography>
         <form onSubmit={handleFormSubmitted}>
@@ -75,7 +75,7 @@ export const SignIn = (props: Props) => {
             Sign In
           </Button>
         </form>
-        <Typography className={s.caption}>
+        <Typography className={s.caption} variant="body2">
           {/* eslint-disable-next-line react/no-unescaped-entities */}
           Don't have an account?
         </Typography>
