@@ -11,13 +11,13 @@ type Props = {
 export const CheckEmail = ({ email }: Props) => {
   return (
     <Card className={s.card}>
-      <Typography variant="h1" className={s.title}>
+      <Typography variant="large" className={s.title}>
         Check your email
       </Typography>
       <div className={s.iconContainer}>
         <Email />
       </div>
-      <Typography variant="caption" className={s.instructions}>
+      <Typography variant="body2" className={s.instructions}>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         We've sent an e-mail with instructions to {email}
       </Typography>
