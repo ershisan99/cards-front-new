@@ -68,5 +68,12 @@
     "vite": "^4.3.9",
     "vitest": "^0.30.1",
     "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,md}": [
+      "eslint --fix"
+    ],
+    "**/*": "prettier --write --ignore-unknown",
+    "*.{css,scss}": "stylelint --fix"
   }
 }
