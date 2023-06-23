@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 12px 136px;
+
+  background: var(--color-dark-700, #171717);
+  border-bottom: 1px solid var(--color-dark-500, #333);
+}
+
+.userMenuTrigger {
+  all: unset;
+
+  cursor: pointer;
+
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.userName {
+  text-decoration: dashed underline;
+}

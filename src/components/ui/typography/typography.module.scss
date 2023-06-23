@@ -44,7 +44,7 @@
 }
 
 .caption {
-  @include typography(var(--font-size-xs), var(--line-height-m), var(--font-weight-regular));
+  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
 }
 
 .link1,
