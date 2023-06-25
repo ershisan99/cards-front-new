@@ -92,7 +92,7 @@ export type DropdownItemProps = {
   children?: ReactNode
   disabled?: boolean
   /** Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item. */
-  onSelect: (event: Event) => void
+  onSelect?: (event: Event) => void
   className?: string
   style?: CSSProperties
 }

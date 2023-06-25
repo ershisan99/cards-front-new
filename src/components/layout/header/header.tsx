@@ -1,9 +1,10 @@
-import { forwardRef } from 'react'
+import { Link } from 'react-router-dom'
 
-import { Logo } from '../../../assets/icons'
+import { Logo, PersonOutline } from '../../../assets/icons'
+import Logout from '../../../assets/icons/logout'
 import { Button, Typography } from '../../ui'
 import { Avatar } from '../../ui/avatar/avatar'
-import { Dropdown, DropdownItemWithIcon } from '../../ui/dropdown'
+import { Dropdown, DropdownItem, DropdownItemWithIcon } from '../../ui/dropdown'
 
 import s from './header.module.scss'
 
@@ -14,11 +15,15 @@ type HeaderProps = {
     avatar: string
     email: string
   }
+  onProfileSelect?: () => void
+  onSignOut?: () => void
 }
-export const Header = ({ isAuth, userInfo }: HeaderProps) => {
+export const Header = ({ isAuth, userInfo, onSignOut, onProfileSelect }: HeaderProps) => {
   return (
     <header className={s.header}>
-      <Logo />
+      <Link to={'/'} className={s.logoLink}>
+        <Logo />
+      </Link>
       {isAuth && (
         <Dropdown
           trigger={
@@ -30,7 +35,23 @@ export const Header = ({ isAuth, userInfo }: HeaderProps) => {
             </button>
           }
         >
-          <DropdownItemWithIcon icon={<Logo />} text="Изменить" onSelect={() => {}} />
+          <DropdownItem>
+            <div className={s.userInfoContainer}>
+              <Avatar src={userInfo?.avatar} />
+              <div className={s.userDetails}>
+                <Typography variant="subtitle2">{userInfo?.name}</Typography>
+                <Typography variant="caption" className={s.userEmail}>
+                  {userInfo?.email}
+                </Typography>
+              </div>
+            </div>
+          </DropdownItem>
+          <DropdownItemWithIcon
+            icon={<PersonOutline />}
+            text="Profile"
+            onSelect={onProfileSelect}
+          />
+          <DropdownItemWithIcon icon={<Logout />} text="Sign out" onSelect={onSignOut} />
         </Dropdown>
       )}
       {!isAuth && <Button variant="primary">Sign In</Button>}

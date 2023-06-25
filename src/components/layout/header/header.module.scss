@@ -8,6 +8,10 @@
   border-bottom: 1px solid var(--color-dark-500, #333);
 }
 
+.logoLink {
+  display: flex;
+}
+
 .userMenuTrigger {
   all: unset;
 
@@ -20,4 +24,19 @@
 
 .userName {
   text-decoration: dashed underline;
+}
+
+.userEmail {
+  color: var(--color-dark-100);
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfoContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }

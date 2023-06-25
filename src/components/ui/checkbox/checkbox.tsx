@@ -3,7 +3,6 @@ import { FC } from 'react'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import { clsx } from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
 
 import { Check } from '../../../assets/icons'
 import { Typography } from '../typography'
@@ -51,37 +50,11 @@ export const Checkbox: FC<CheckboxProps> = ({
               required={required}
               id={id}
             >
-              <AnimatePresence initial={false}>
-                {checked && (
-                  <CheckboxRadix.Indicator className={classNames.indicator} asChild forceMount>
-                    <motion.div
-                      variants={{
-                        unchecked: { scale: 0.5 },
-                        checked: { scale: 1 },
-                      }}
-                      initial="unchecked"
-                      animate="checked"
-                      exit="unchecked"
-                    >
-                      <motion.div
-                        variants={{
-                          unchecked: {
-                            opacity: 0,
-                            transition: { duration: 0.1 },
-                          },
-                          checked: {
-                            opacity: 1,
-                            strokeDashoffset: 0,
-                            transition: { duration: 0.1 },
-                          },
-                        }}
-                      >
-                        <Check />
-                      </motion.div>
-                    </motion.div>
-                  </CheckboxRadix.Indicator>
-                )}
-              </AnimatePresence>
+              {checked && (
+                <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
+                  <Check />
+                </CheckboxRadix.Indicator>
+              )}
             </CheckboxRadix.Root>
           </div>
           {label}

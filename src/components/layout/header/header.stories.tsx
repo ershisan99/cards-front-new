@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { toast } from 'react-toastify'
 
 import { Header } from './'
 
@@ -19,6 +20,8 @@ export const Authorized: Story = {
       avatar: 'https://picsum.photos/200',
       email: 'example@gmail.com',
     },
+    onSignOut: () => toast.success('Signed out successfully'),
+    onProfileSelect: () => toast.info('Profile selected'),
   },
 }
 
