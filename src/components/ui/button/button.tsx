@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -31,4 +31,4 @@ const Button = <T extends React.ElementType = 'button'>(
   return <Component ref={ref} className={classNames.root} {...otherProps} />
 }
 
-export default React.forwardRef(Button)
+export default forwardRef(Button)
