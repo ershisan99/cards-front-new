@@ -8,6 +8,7 @@ import { Typography } from '../typography'
 import s from './text-field.module.scss'
 
 export type TextFieldProps = {
+  onValueChange?: (value: string) => void
   containerProps?: ComponentProps<'div'>
   labelProps?: ComponentProps<'label'>
   errorMessage?: string
@@ -16,7 +17,18 @@ export type TextFieldProps = {
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
-    { className, errorMessage, placeholder, type, containerProps, labelProps, label, ...restProps },
+    {
+      className,
+      errorMessage,
+      placeholder,
+      type,
+      containerProps,
+      labelProps,
+      label,
+      onChange,
+      onValueChange,
+      ...restProps
+    },
     ref
   ) => {
     const [showPassword, setShowPassword] = useState(false)
@@ -24,6 +36,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const isShowPasswordButtonShown = type === 'password'
 
     const finalType = getFinalType(type, showPassword)
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      onChange?.(e)
+      onValueChange?.(e.target.value)
+    }
 
     const classNames = {
       root: clsx(s.root, containerProps?.className),
@@ -46,6 +63,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             placeholder={placeholder}
             ref={ref}
             type={finalType}
+            onChange={handleChange}
             {...restProps}
           />
           {isShowPasswordButtonShown && (

@@ -1,0 +1,14 @@
+.page {
+  padding-top: var(--header-height);
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.content {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
