@@ -1,17 +1,35 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import { SignIn } from './components/auth/sign-in'
-import { useGetMeQuery, useLoginMutation } from './services/auth/auth'
+import { Index, Login } from './pages'
+import { Decks } from './pages/decks'
+import { SignUpPage } from './pages/sign-up'
+import { useGetMeQuery } from './services/auth/auth'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Index />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/decks',
+    element: <Decks />,
+  },
+  {
+    path: 'sign-up',
+    element: <SignUpPage />,
+  },
+])
 
 export function App() {
-  const [login, result] = useLoginMutation()
   const { data } = useGetMeQuery()
-
-  console.log(result)
 
   return (
     <div>
-      <SignIn onSubmit={login} />
+      <RouterProvider router={router} />
     </div>
   )
 }
