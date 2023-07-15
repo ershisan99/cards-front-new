@@ -1,8 +1,9 @@
 import { ComponentProps, FC } from 'react'
 
 import { clsx } from 'clsx'
+import { BiChevronUp } from 'react-icons/bi'
 
-import { ChevronUp } from '../../../assets/icons'
+import { Sort } from '../../../services/common/types'
 import { Typography } from '../typography'
 
 import s from './table.module.scss'
@@ -22,10 +23,6 @@ export type HeadProps = ComponentProps<'thead'>
 export const Head: FC<HeadProps> = props => {
   return <thead {...props} />
 }
-export type Sort = {
-  key: string
-  direction: 'asc' | 'desc'
-} | null
 
 export type Column = {
   title: string
@@ -64,7 +61,7 @@ export const Header: FC<
         {columns.map(({ title, key, sortable }) => (
           <HeadCell key={key} onClick={handleSort(key, sortable)} sortable={sortable}>
             {title}
-            {sort?.key === key ? <ChevronUp className={classNames.chevron} /> : ''}
+            {sort?.key === key ? <BiChevronUp className={classNames.chevron} /> : ''}
           </HeadCell>
         ))}
       </Row>

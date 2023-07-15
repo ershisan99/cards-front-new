@@ -1,13 +1,11 @@
 import { User } from '../auth/types'
 
 export type GetDecksParams = {
-  currentPage?: number
-  pageSize?: number
   authorId?: string
   name?: string
   minCardsCount?: number
   maxCardsCount?: number
-} | void
+}
 
 export type Decks = Deck[]
 
@@ -30,3 +28,4 @@ export type Deck = {
 }
 
 export type CreateDeckInput = Pick<Deck, 'cover' | 'name' | 'isPrivate'>
+export type DeleteDeckInput = { deckId: Deck['id'] }

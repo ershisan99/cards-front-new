@@ -1,9 +1,9 @@
 .controls {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   align-items: center;
   gap: 24px;
   margin-bottom: 36px;
+  width: 100%;
 }
 
 .toggle {
