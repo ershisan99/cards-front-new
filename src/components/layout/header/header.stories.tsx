@@ -21,7 +21,6 @@ export const Authorized: Story = {
       email: 'example@gmail.com',
     },
     onSignOut: () => toast.success('Signed out successfully'),
-    onProfileSelect: () => toast.info('Profile selected'),
   },
 }
 
