@@ -2,9 +2,10 @@ import { useMemo, useState } from 'react'
 
 import { Meta } from '@storybook/react'
 
+import { Sort } from '../../../services/common/types'
 import { Typography } from '../typography'
 
-import { Column, Sort, Table } from './'
+import { Column, Table } from './'
 
 export default {
   title: 'Components/Table',
