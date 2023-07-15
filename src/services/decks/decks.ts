@@ -22,6 +22,9 @@ export const decksApi = createApi({
       },
       providesTags: ['Decks'],
     }),
+    getDeckById: builder.query<Deck, string>({
+      query: deckId => `decks/${deckId}`,
+    }),
     createDeck: builder.mutation<any, CreateDeckInput>({
       query: body => ({
         url: `decks`,
@@ -42,4 +45,9 @@ export const decksApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetDecksQuery, useDeleteDeckMutation, useCreateDeckMutation } = decksApi
+export const {
+  useGetDecksQuery,
+  useGetDeckByIdQuery,
+  useDeleteDeckMutation,
+  useCreateDeckMutation,
+} = decksApi

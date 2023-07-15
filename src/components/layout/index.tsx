@@ -1,28 +1,17 @@
-import { PropsWithChildren } from 'react'
-
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 
 import { useGetMeQuery } from '../../services/auth/auth'
 
 import { Header } from './header'
 import s from './layout.module.scss'
-type Props = PropsWithChildren<{
-  userInfo?: {
-    name: string
-    avatar?: string
-    email: string
-  }
-}>
-export const Layout = ({ userInfo }: Props) => {
-  const { data, isLoading, isError, error } = useGetMeQuery()
+
+export const Layout = () => {
+  const { data, isLoading, isError } = useGetMeQuery()
+  const navigate = useNavigate()
+  const location = useLocation()
 
   if (isLoading) return <div>Loading...</div>
-  // if (isError)
-  //   return (
-  //     <div>
-  //       Error: <div>{JSON.stringify(error)}</div>
-  //     </div>
-  //   )
+  if (isError && location.pathname !== '/login') return navigate('/login')
 
   return (
     <div className={s.container}>

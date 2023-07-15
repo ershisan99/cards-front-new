@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { Logo, PersonOutline } from '../../../assets/icons'
 import Logout from '../../../assets/icons/logout'
@@ -15,10 +15,11 @@ type HeaderProps = {
     avatar?: string
     email: string
   }
-  onProfileSelect?: () => void
   onSignOut?: () => void
 }
-export const Header = ({ isAuth, userInfo, onSignOut, onProfileSelect }: HeaderProps) => {
+export const Header = ({ isAuth, userInfo, onSignOut }: HeaderProps) => {
+  const navigate = useNavigate()
+
   return (
     <header className={s.header}>
       <Link to={'/'} className={s.logoLink}>
@@ -49,7 +50,7 @@ export const Header = ({ isAuth, userInfo, onSignOut, onProfileSelect }: HeaderP
           <DropdownItemWithIcon
             icon={<PersonOutline />}
             text="Profile"
-            onSelect={onProfileSelect}
+            onSelect={() => navigate('/profile')}
           />
           <DropdownItemWithIcon icon={<Logout />} text="Sign out" onSelect={onSignOut} />
         </Dropdown>
