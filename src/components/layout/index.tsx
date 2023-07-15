@@ -11,7 +11,7 @@ export const Layout = () => {
   const location = useLocation()
 
   if (isLoading) return <div>Loading...</div>
-  if (isError && location.pathname !== '/login') return navigate('/login')
+  if (isError && location.pathname !== '/login') navigate('/login')
 
   return (
     <div className={s.container}>
