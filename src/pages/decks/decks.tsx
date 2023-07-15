@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import dayjs from 'dayjs'
 import { useForm } from 'react-hook-form'
+import { FaTrash } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { z } from 'zod'
 
@@ -16,10 +18,15 @@ import {
 import { Modal } from '../../components/ui/modal'
 import { Page } from '../../components/ui/page'
 import { Slider } from '../../components/ui/slider/slider'
-import { Table } from '../../components/ui/table'
+import { Column, Table } from '../../components/ui/table'
 import { Toggle } from '../../components/ui/toggle'
 import { useGetMeQuery } from '../../services/auth/auth'
-import { useCreateDeckMutation, useGetDecksQuery } from '../../services/decks/decks'
+import { Sort } from '../../services/common/types'
+import {
+  useCreateDeckMutation,
+  useDeleteDeckMutation,
+  useGetDecksQuery,
+} from '../../services/decks/decks'
 
 import s from './decks.module.scss'
 
@@ -39,15 +46,20 @@ export const Decks = () => {
   const [search, setSearch] = useState('')
   const [showMyDecks, setShowMyDecks] = useState(false)
   const [range, setRange] = useState([0, 100])
+  const [sort, setSort] = useState<Sort>({ key: 'updated', direction: 'asc' })
+  const sortString = sort ? `${sort.key}-${sort.direction}` : null
+
   const {
     data: decks,
     isLoading,
     isError,
   } = useGetDecksQuery({
+    itemsPerPage: 100,
     name: search,
     authorId: showMyDecks ? user?.id : undefined,
     minCardsCount: range[0],
     maxCardsCount: range[1],
+    orderBy: sortString,
   })
   const [rangeValue, setRangeValue] = useState([0, 1])
 
@@ -70,7 +82,7 @@ export const Decks = () => {
     setRangeValue([0, 100])
   }
   const [createDeck] = useCreateDeckMutation()
-
+  const [deleteDeck] = useDeleteDeckMutation()
   const handleDeckCreated = (args: NewDeck) => {
     createDeck(args)
       .unwrap()
@@ -82,6 +94,33 @@ export const Decks = () => {
         toast.error(err.data.message)
       })
   }
+
+  const columns: Column[] = [
+    {
+      key: 'name',
+      title: 'Name',
+      sortable: true,
+    },
+    {
+      key: 'cardsCount',
+      title: 'Cards',
+      sortable: true,
+    },
+    {
+      key: 'updated',
+      title: 'Last Updated',
+      sortable: true,
+    },
+    {
+      key: 'author.name',
+      title: 'Author',
+      sortable: true,
+    },
+    {
+      key: 'actions',
+      title: '',
+    },
+  ]
 
   if (isLoading) return <div>loading...</div>
   if (isError) return <div>error</div>
@@ -131,21 +170,26 @@ export const Decks = () => {
 
       <div style={{ width: '100%' }}>
         <Table.Root style={{ width: '100%' }}>
-          <Table.Head>
-            <Table.Row>
-              <Table.HeadCell>Name</Table.HeadCell>
-              <Table.HeadCell>Cards</Table.HeadCell>
-              <Table.HeadCell>Last Updated</Table.HeadCell>
-              <Table.HeadCell>Created By</Table.HeadCell>
-            </Table.Row>
-          </Table.Head>
+          <Table.Header columns={columns} sort={sort} onSort={setSort} />
           <Table.Body>
             {decks?.items?.map(deck => (
               <Table.Row key={deck.id}>
-                <Table.Cell>{deck.name}</Table.Cell>
+                <Table.Cell>
+                  <Link to={`/cards/${deck.id}`}>{deck.name}</Link>
+                </Table.Cell>
                 <Table.Cell>{deck.cardsCount}</Table.Cell>
                 <Table.Cell>{dayjs(deck.updated).format('L, LT')}</Table.Cell>
                 <Table.Cell>{deck.author.name}</Table.Cell>
+                <Table.Cell>
+                  <button
+                    className={'unset'}
+                    onClick={() => {
+                      deleteDeck({ deckId: deck.id })
+                    }}
+                  >
+                    <FaTrash />
+                  </button>
+                </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

@@ -12,7 +12,7 @@ type HeaderProps = {
   isAuth: boolean
   userInfo?: {
     name: string
-    avatar: string
+    avatar?: string
     email: string
   }
   onProfileSelect?: () => void

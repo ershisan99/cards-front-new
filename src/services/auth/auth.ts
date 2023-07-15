@@ -6,7 +6,10 @@ import { LoginArgs, User } from './types'
 // Define a service using a base URL and expected endpoints
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/v1/', credentials: 'include' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_BASE_API_URL,
+    credentials: 'include',
+  }),
   endpoints: builder => ({
     getMe: builder.query<User, void>({
       query: () => `auth/me`,
