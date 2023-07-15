@@ -13,13 +13,13 @@ import { Modal } from '../../components/ui/modal'
 import { Page } from '../../components/ui/page'
 import { Pagination } from '../../components/ui/pagination'
 import { Column, Table } from '../../components/ui/table'
-import { useGetMeQuery } from '../../services/auth/auth'
 import {
   useCreateCardMutation,
   useDeleteCardMutation,
   useGetCardsQuery,
 } from '../../services/cards/cards'
 import { Sort } from '../../services/common/types'
+import { useGetDeckByIdQuery } from '../../services/decks/decks'
 
 import s from './cards.module.scss'
 
@@ -31,26 +31,26 @@ const newDeckSchema = z.object({
 type NewCard = z.infer<typeof newDeckSchema>
 export const Cards = () => {
   const { deckId } = useParams<{ deckId: string }>()
-  const { data: user } = useGetMeQuery()
   const [deleteCard] = useDeleteCardMutation()
   const [sort, setSort] = useState<Sort>({ key: 'updated', direction: 'asc' })
   const sortString = sort ? `${sort.key}-${sort.direction}` : null
 
-  if (!deckId) return <div>Deck not found</div>
-
   const [search, setSearch] = useState('')
   const [perPage, setPerPage] = useState(10)
   const [page, setPage] = useState(1)
+  const { data: deck } = useGetDeckByIdQuery(deckId || '')
   const {
     data: cards,
     isLoading,
     isError,
   } = useGetCardsQuery({
-    deckId,
+    deckId: deckId || '',
     orderBy: sortString,
     currentPage: page,
     itemsPerPage: perPage,
   })
+
+  if (!deckId) return <div>Deck not found</div>
 
   if (isLoading) return <div>loading...</div>
   if (isError) return <div>error</div>
@@ -66,7 +66,7 @@ export const Cards = () => {
   return (
     <Page>
       <div className={'flex items-center mb-6 justify-between'}>
-        <Typography variant={'large'}>Cards</Typography>
+        <Typography variant={'large'}>{deck?.name}</Typography>
         <CreateCardModal deckId={deckId} />
       </div>
       <div className={s.controls}>
