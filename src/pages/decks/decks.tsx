@@ -49,11 +49,7 @@ export const Decks = () => {
   const [sort, setSort] = useState<Sort>({ key: 'updated', direction: 'asc' })
   const sortString = sort ? `${sort.key}-${sort.direction}` : null
 
-  const {
-    data: decks,
-    isLoading,
-    isError,
-  } = useGetDecksQuery({
+  const { data: decks, isLoading } = useGetDecksQuery({
     itemsPerPage: 100,
     name: search,
     authorId: showMyDecks ? user?.id : undefined,
@@ -123,7 +119,6 @@ export const Decks = () => {
   ]
 
   if (isLoading) return <div>loading...</div>
-  if (isError) return <div>error</div>
 
   return (
     <Page>

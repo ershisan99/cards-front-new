@@ -39,11 +39,7 @@ export const Cards = () => {
   const [perPage, setPerPage] = useState(10)
   const [page, setPage] = useState(1)
   const { data: deck } = useGetDeckByIdQuery(deckId || '')
-  const {
-    data: cards,
-    isLoading,
-    isError,
-  } = useGetCardsQuery({
+  const { data: cards, isLoading } = useGetCardsQuery({
     deckId: deckId || '',
     orderBy: sortString,
     currentPage: page,
@@ -53,7 +49,6 @@ export const Cards = () => {
   if (!deckId) return <div>Deck not found</div>
 
   if (isLoading) return <div>loading...</div>
-  if (isError) return <div>error</div>
 
   const columns: Column[] = [
     { key: 'question', sortable: true, title: 'Question' },

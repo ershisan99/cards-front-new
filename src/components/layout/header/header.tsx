@@ -14,7 +14,7 @@ type HeaderProps = {
     name: string
     avatar?: string
     email: string
-  }
+  } | null
   onSignOut?: () => void
 }
 export const Header = ({ isAuth, userInfo, onSignOut }: HeaderProps) => {
