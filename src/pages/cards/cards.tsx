@@ -60,6 +60,7 @@ export const Cards = () => {
 
   return (
     <Page>
+      <img src={deck?.cover} alt={deck?.name} className={'w-full h-64 object-cover'} />
       <div className={'flex items-center mb-6 justify-between'}>
         <Typography variant={'large'}>{deck?.name}</Typography>
         <CreateCardModal deckId={deckId} />

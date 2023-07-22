@@ -71,3 +71,39 @@
   // borders
   --color-border-primary: #313131;
 }
+
+:root .dark-mode {
+  // light
+  --color-light-100: #808080;
+  --color-light-300: #4c4c4c;
+  --color-light-500: #4c4c4c;
+  --color-light-700: #171717;
+  --color-light-900: #000;
+
+  // dark
+  --color-dark-100: #c3c1c7;
+  --color-dark-300: #dcdae0;
+  --color-dark-500: #f4f2fa;
+  --color-dark-700: #f9f7ff;
+  --color-dark-900: #fff;
+
+  --color-bg-primary: var(--color-dark-900);
+
+  --color-bg-primary: var(--color-dark-900);
+  --color-bg-secondary: #fcfcfc;
+  --color-bg-tertiary: #efefef;
+  --color-bg-paper: var(--color-dark-700);
+  // semantic
+  --color-primary: var(--color-accent-500);
+  --color-primary-hover: var(--color-accent-300);
+  --color-primary-active: var(--color-accent-700);
+  --color-secondary: #ffc700;
+  --color-danger: var(--color-danger-500);
+  --color-danger-hover: var(--color-danger-600);
+  --color-danger-active: var(--color-danger-700);
+  --color-outline-focus: var(--color-info-700);
+
+  // text
+  --color-text-primary: var(--color-light-100);
+  --color-text-link: var(--color-primary-500);
+}

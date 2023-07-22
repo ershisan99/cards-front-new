@@ -1,6 +1,9 @@
+import { useState } from 'react'
+
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom'
 
 import { Layout } from './components/layout'
+import { Button } from './components/ui'
 import { Login } from './pages'
 import { Cards } from './pages/cards'
 import { Decks } from './pages/decks'
@@ -43,13 +46,31 @@ const router = createBrowserRouter([
 ])
 
 export function App() {
-  return <RouterProvider router={router} />
+  const handleThemeChanged = useHandleThemeChanged()
+
+  return (
+    <div>
+      <Button onClick={handleThemeChanged} style={{ position: 'fixed', top: '50%' }}>
+        {' '}
+        Change Theme
+      </Button>
+      <RouterProvider router={router} />
+    </div>
+  )
 }
 
-export default function ProtectedRoutes() {
+function ProtectedRoutes() {
   const { data, isLoading } = useGetMeQuery()
 
   if (isLoading) return <div>Loading...</div>
 
   return data ? <Outlet /> : <Navigate to="/login" />
+}
+function useHandleThemeChanged() {
+  const [state, setState] = useState(false)
+
+  return () => {
+    document.body.classList.toggle('dark-mode', state)
+    setState(!state)
+  }
 }
