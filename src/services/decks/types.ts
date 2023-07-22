@@ -9,7 +9,7 @@ export type GetDecksParams = {
 
 export type Decks = Deck[]
 
-export type DeckAuthor = Pick<User, 'id' | 'name'>
+export type DeckAuthor = Pick<User, 'id' | 'name'> // { id: string, name: string }
 
 export type Deck = {
   id: string
@@ -27,5 +27,5 @@ export type Deck = {
   cardsCount: number
 }
 
-export type CreateDeckInput = Pick<Deck, 'cover' | 'name' | 'isPrivate'>
-export type DeleteDeckInput = { deckId: Deck['id'] }
+export type CreateDeckInput = FormData // { cover: File, name: string, isPrivate: boolean }
+export type DeleteDeckInput = { deckId: Deck['id'] } // { deckId: string }

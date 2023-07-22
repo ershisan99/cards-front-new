@@ -145,6 +145,7 @@ export const Decks = () => {
         <Typography variant={'large'}>Decks</Typography>
         <Button onClick={openModal}>Add New Deck</Button>
       </div>
+      <CreateDeck />
       <div className={s.controls}>
         <TextField placeholder={'Search'} value={search} onValueChange={setSearch} />
         <label className={s.toggle}>
@@ -191,5 +192,33 @@ export const Decks = () => {
         </Table.Root>
       </div>
     </Page>
+  )
+}
+
+const schema = z.object({
+  cover: z.array(z.instanceof(File)),
+  name: z.string(),
+})
+
+type Form = z.infer<typeof schema>
+
+function CreateDeck() {
+  const { register, handleSubmit } = useForm<Form>()
+  const [createDeck] = useCreateDeckMutation()
+  const onSubmit = handleSubmit(data => {
+    const form = new FormData()
+
+    form.append('cover', data.cover[0])
+    form.append('name', data.name)
+
+    createDeck(form)
+  })
+
+  return (
+    <form onSubmit={onSubmit}>
+      <input type="file" {...register('cover')} />
+      <input type="text" {...register('name')} />
+      <button type="submit">Submit</button>
+    </form>
   )
 }
